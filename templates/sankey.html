@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block title %}
+    桑吉图
+{% endblock %}
+
+{% block main %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <svg width="1400" height="500">
+            </svg>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='js/d3.v3.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/sankey-modified.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/trend.js') }}"></script>
+    <script>
+    // 节点和连接数据
+var data = {
+  'nodes': [
+      // pos 横坐标 w 纵坐标 大的在上小的在下
+      /*
+      {name: "1-2010", pos: 0, w:1},
+      {name: "1-2012", pos: 0.8, w:10},
+      {name: "1-2014", pos: 1.6, w: 20},
+      {name: "1-2016", pos: 2.4, w: 80},
+      {name: "1-2017", pos: 3.2, w: 500},
+      {name: "1-2018", pos: 4, w: 2000},
+    //6 7 8 9 10 11
+      {name: "2-2010", pos: 0, w: 1},
+      {name: "2-2012", pos: 0.8, w: 50},
+      {name: "2-2014", pos: 1.6, w: 200},
+      {name: "2-2016", pos: 2.4, w: 400},
+      {name: "2-2017", pos: 3.2, w: 600},
+      {name: "2-2018", pos: 4, w: 700},
+       */
+      {name: "1-2010", pos: 0, w:8},
+      {name: "1-2012", pos: 0.8, w:8},
+      {name: "1-2014", pos: 1.6, w: 56},
+      {name: "1-2016", pos: 2.4, w: 27},
+      {name: "1-2017", pos: 3.2, w: 43},
+      {name: "1-2018", pos: 4, w: 48},
+      //6 7 8 9 10 11
+      {name: "2-2010", pos: 0, w: 10},
+      {name: "2-2012", pos: 0.8, w: 34},
+      {name: "2-2014", pos: 1.6, w: 536},
+      {name: "2-2016", pos: 2.4, w: 1014},
+      {name: "2-2017", pos: 3.2, w: 177},
+      {name: "2-2018", pos: 4, w: 104},
+  ],
+    //w1 控制左下 w2控制右下
+  'links': [
+      /*
+      {source: 0, target: 1, w1: 1, w2: 1, color:'#1f77b4'},
+      {source: 1, target: 2, w1: 0.1, w2: 0.3, color:'#1f77b4'},
+      {source: 2, target: 3, w1: 1, w2: 0.5, color:'#1f77b4'},
+      {source: 3, target: 4, w1: 0.5, w2: 0.4, color:'#1f77b4'},
+      {source: 4, target: 5, w1: 0.4, w2: 1, color:'#1f77b4'},
+      {source: 6, target: 7, w1: 1, w2: 1, color: '#ff7f0e'},
+      {source: 7, target: 8, w1: 1, w2: 1, color: '#ff7f0e'},
+      {source: 8, target: 9, w1: 1, w2: 1, color: '#ff7f0e'},
+      {source: 9, target: 10, w1: 1, w2: 1, color: '#ff7f0e'},
+      {source: 10, target: 11, w1: 1, w2: 1, color: '#ff7f0e'},
+       */
+      {source: 0, target: 1, w1: 1, w2: 1, color:'#1f77b4'},
+      {source: 1, target: 2, w1: 1, w2: 1, color:'#1f77b4'},
+      {source: 2, target: 3, w1: 1, w2: 1, color:'#1f77b4'},
+      {source: 3, target: 4, w1: 1, w2: 1, color:'#1f77b4'},
+      {source: 4, target: 5, w1: 1, w2: 1, color:'#1f77b4'},
+      {source: 6, target: 7, w1: 1, w2: 1, color: '#ff7f0e'},
+      {source: 7, target: 8, w1: 1, w2: 1, color: '#ff7f0e'},
+      {source: 8, target: 9, w1: 1, w2: 1, color: '#ff7f0e'},
+      {source: 9, target: 10, w1: 1, w2: 1, color: '#ff7f0e'},
+      {source: 10, target: 11, w1: 1, w2: 1, color: '#ff7f0e'},
+  ]
+};
+//generateTrend(data);
+    </script>
+{% endblock %}
